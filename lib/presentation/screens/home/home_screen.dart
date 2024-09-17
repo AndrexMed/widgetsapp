@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:widgetsapp/configs/menu/menu_item.dart';
-import 'package:widgetsapp/configs/router/router.dart';
-import 'package:widgetsapp/presentation/screens/buttons/buttons_screen.dart';
+import 'package:widgetsapp/presentation/screens/screens.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const name = 'home_screen';
   const HomeScreen({super.key});
 
   @override
@@ -51,6 +51,7 @@ class _CustomListTile extends StatelessWidget {
         color: colors.primary,
       ),
       onTap: () {
+        //Nativa de flutter
         // Navigator.of(context).push(
         //   MaterialPageRoute(
         //     builder: (context) => const ButtonsScreen(),
@@ -59,6 +60,8 @@ class _CustomListTile extends StatelessWidget {
 
         // Navigator.pushNamed(context, menuItem.link);
 
+//Nativas de go_router
+        // context.pushNamed(CardsScreen.name);
         context.push(menuItem.link);
       },
       trailing: Icon(Icons.arrow_forward_ios_rounded, color: colors.primary),
