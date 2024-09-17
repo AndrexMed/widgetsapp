@@ -68,7 +68,31 @@ class _ButtonsView extends StatelessWidget {
                   backgroundColor: WidgetStatePropertyAll(Colors.amber),
                   iconColor: WidgetStatePropertyAll(Colors.white)),
             ),
+            const _CustomButton(),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CustomButton extends StatelessWidget {
+  const _CustomButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Material(
+        color: colors.primary,
+        child: InkWell(
+          onTap: () {},
+          child: const Padding(
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            child: Text('Hola Mundo', style: TextStyle(color: Colors.white)),
+          ),
         ),
       ),
     );
