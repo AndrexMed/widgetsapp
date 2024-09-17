@@ -16,7 +16,10 @@ class MenuItem {
 const appMenuItems = <MenuItem>[
   MenuItem(title: 'Home', subtitle: '', link: '/', icon: Icons.home),
   MenuItem(
-      title: 'Botones', subtitle: '', link: '/buttons', icon: Icons.radio_button_on_sharp),
+      title: 'Botones',
+      subtitle: '',
+      link: '/buttons',
+      icon: Icons.radio_button_on_sharp),
   MenuItem(
       title: 'Tarjetas',
       subtitle: 'Contenedor estilizado',
