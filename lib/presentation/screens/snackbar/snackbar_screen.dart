@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:widgetsapp/configs/router/router.dart';
 
 class SnackbarScreen extends StatelessWidget {
   static const name = 'snackbar_screen';

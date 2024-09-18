@@ -35,4 +35,9 @@ const appMenuItems = <MenuItem>[
       subtitle: 'Mensajes de alerta',
       link: '/snackbars',
       icon: Icons.abc),
+  MenuItem(
+      title: 'Animated Containers',
+      subtitle: 'Contenedores animados',
+      link: '/animated',
+      icon: Icons.check_box_outline_blank_rounded)
 ];
