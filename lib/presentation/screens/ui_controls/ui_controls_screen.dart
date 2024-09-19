@@ -28,7 +28,7 @@ enum Transportation {
 }
 
 class _UiControlsView extends StatefulWidget {
-  const _UiControlsView({super.key});
+  const _UiControlsView();
 
   @override
   State<_UiControlsView> createState() => _UiControlsViewState();
