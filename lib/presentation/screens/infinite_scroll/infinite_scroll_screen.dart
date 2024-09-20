@@ -50,6 +50,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     //TODO Revisar si esta montado el componente para hacer el scroll
     if (!isMounted) return;
     setState(() {});
+    moveScrollToBottom();
   }
 
   Future<void> onRefresh() async {
@@ -65,6 +66,17 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     addFiveImages();
 
     setState(() {});
+  }
+
+  void moveScrollToBottom() {
+    if (controller.position.pixels + 100 <=
+        controller.position.maxScrollExtent) {
+      return;
+    }
+
+    controller.animateTo(controller.position.pixels + 120,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.fastOutSlowIn);
   }
 
   @override
