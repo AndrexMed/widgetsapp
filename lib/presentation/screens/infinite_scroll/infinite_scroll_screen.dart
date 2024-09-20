@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -54,35 +55,41 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
-      body: MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        removeBottom: true,
-        child: ListView.builder(
-          controller: controller,
-          itemCount: imagesIds.length,
-          itemBuilder: (context, index) {
-            return FadeInImage(
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 300,
-              placeholder: const AssetImage('assets/images/jar-loading.gif'),
-              image: NetworkImage(
-                  'https://picsum.photos/id/${imagesIds[index]}/500/300'),
-              imageErrorBuilder: (context, error, stackTrace) {
-                return const Center(child: Text('Error loading image'));
-              },
-            );
-          },
+        backgroundColor: Colors.blue,
+        body: MediaQuery.removePadding(
+          context: context,
+          removeTop: true,
+          removeBottom: true,
+          child: ListView.builder(
+            controller: controller,
+            itemCount: imagesIds.length,
+            itemBuilder: (context, index) {
+              return FadeInImage(
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 300,
+                placeholder: const AssetImage('assets/images/jar-loading.gif'),
+                image: NetworkImage(
+                    'https://picsum.photos/id/${imagesIds[index]}/500/300'),
+                imageErrorBuilder: (context, error, stackTrace) {
+                  return const Center(child: Text('Error loading image'));
+                },
+              );
+            },
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.pop();
-        },
-        child: const Icon(Icons.arrow_back),
-      ),
-    );
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            context.pop();
+          },
+          child: isLoading
+              ? FadeInRight(
+                  child: SpinPerfect(
+                    infinite: true,
+                    child: Icon(Icons.refresh_rounded),
+                  ),
+                )
+              : FadeIn(child: const Icon(Icons.arrow_back_ios_outlined)),
+        ));
   }
 }
