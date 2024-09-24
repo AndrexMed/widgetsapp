@@ -60,4 +60,6 @@ const appMenuItems = <MenuItem>[
       subtitle: 'Contador',
       link: '/counter',
       icon: Icons.countertops_rounded),
+  MenuItem(
+      title: 'Theme', subtitle: 'Tema', link: '/theme', icon: Icons.colorize),
 ];

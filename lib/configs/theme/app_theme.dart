@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 const colorList = <Color>[
   Colors.blue,
+  Colors.teal,
   Colors.green,
-  Colors.yellow,
-  Colors.orange,
+  Colors.red,
   Colors.purple,
-  Colors.red
+  Colors.orange
 ];
 
 class AppTheme {
@@ -18,10 +18,7 @@ class AppTheme {
             'Selected color must be less than ${colorList.length}');
 
   ThemeData getTheme() => ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: colorList[selectedColor],
-        appBarTheme: const AppBarTheme(
-          centerTitle: false
-        )
-      );
+      useMaterial3: true,
+      colorSchemeSeed: colorList[selectedColor],
+      appBarTheme: const AppBarTheme(centerTitle: false));
 }
