@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:widgetsapp/presentation/providers/counter_provider.dart';
 
-class CounterScreen extends StatelessWidget {
+class CounterScreen extends ConsumerWidget {
   static const name = 'counter_screen';
   const CounterScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-//need a easy app counter.
-
+  Widget build(BuildContext context, WidgetRef ref) {
+    final clickCounter = ref.watch(counterProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Counter Screen'),
       ),
-      body: const _CounterView(),
+      body: _CounterView(clickCounter: clickCounter),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {},
@@ -22,7 +23,10 @@ class CounterScreen extends StatelessWidget {
 }
 
 class _CounterView extends StatelessWidget {
-  const _CounterView();
+  final int clickCounter;
+  const _CounterView({
+    required this.clickCounter,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,8 @@ class _CounterView extends StatelessWidget {
           const Text(
             'Contador',
           ),
-          Text('5', style: Theme.of(context).textTheme.displayMedium),
+          Text(clickCounter.toString(),
+              style: Theme.of(context).textTheme.displayMedium),
         ],
       ),
     );

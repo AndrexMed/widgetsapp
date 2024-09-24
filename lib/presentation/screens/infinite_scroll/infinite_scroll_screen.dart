@@ -47,7 +47,6 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     await Future.delayed(const Duration(seconds: 3));
     addFiveImages();
     isLoading = false;
-    //TODO Revisar si esta montado el componente para hacer el scroll
     if (!isMounted) return;
     setState(() {});
     moveScrollToBottom();
@@ -121,7 +120,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
               ? FadeInRight(
                   child: SpinPerfect(
                     infinite: true,
-                    child: Icon(Icons.refresh_rounded),
+                    child: const Icon(Icons.refresh_rounded),
                   ),
                 )
               : FadeIn(child: const Icon(Icons.arrow_back_ios_outlined)),

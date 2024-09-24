@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:widgetsapp/configs/menu/menu_item.dart';
-import 'package:widgetsapp/configs/router/router.dart';
 
 class SideMenu extends StatefulWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -35,9 +34,9 @@ class _SideMenuState extends State<SideMenu> {
           ),
           ...appMenuItems
               .sublist(0, 3)
-              .map((MenuItem) => NavigationDrawerDestination(
-                    icon: Icon(MenuItem.icon),
-                    label: Text(MenuItem.title),
+              .map((item) => NavigationDrawerDestination(
+                    icon: Icon(item.icon),
+                    label: Text(item.title),
                   )),
           Padding(
             padding: EdgeInsets.fromLTRB(28, hasNotch ? 0 : 20, 16, 10),
@@ -49,9 +48,9 @@ class _SideMenuState extends State<SideMenu> {
           ),
           ...appMenuItems
               .sublist(3)
-              .map((MenuItem) => NavigationDrawerDestination(
-                    icon: Icon(MenuItem.icon),
-                    label: Text(MenuItem.title),
+              .map((item) => NavigationDrawerDestination(
+                    icon: Icon(item.icon),
+                    label: Text(item.title),
                   )),
         ]);
   }
