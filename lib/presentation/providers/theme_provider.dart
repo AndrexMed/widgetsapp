@@ -12,3 +12,19 @@ final colorsListProv = Provider((ref) => colorList);
 final selectedColorProv = StateProvider<int>(
   (ref) => 0,
 );
+
+//Un objeto de tipo AppTheme (custom)
+final appThemeProv = StateNotifierProvider<ThemeNotifier, AppTheme>(
+  (ref) => ThemeNotifier(),
+);
+
+class ThemeNotifier extends StateNotifier<AppTheme> {
+  //STATE = ESTADO = new AppTheme()
+  ThemeNotifier() : super(AppTheme());
+
+  void toggleDarkMode() {}
+
+  void changeColorIndex(int index) {}
+
+  
+}
